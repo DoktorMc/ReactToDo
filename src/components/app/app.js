@@ -33,9 +33,6 @@ export default class App extends Component {
   deleteItem = (id) => {
     this.setState(({ todoData }) => {
       const idx = todoData.findIndex((el) => el.id === id);
-
-      // [1, 2, 3, 4, 5]
-      // [1, 2,   4, 5]
       const newArray = [...todoData.slice(0, idx), ...todoData.slice(idx + 1)];
 
       return {
@@ -82,12 +79,12 @@ export default class App extends Component {
       case "done":
         return items.filter((el) => el.done);
       default:
-       return items;
+        return items;
     }
   };
 
   filterText = (filter) => {
-    this.setState({ filter});
+    this.setState({ filter });
   };
 
   toggleProperty(arr, id, propName) {
