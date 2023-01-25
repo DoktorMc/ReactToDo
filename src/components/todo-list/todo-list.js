@@ -8,13 +8,9 @@ const TodoList = ({onToggleImportant, onToggleDone }) => {
   const { todoData } = useSelector((state) => ({
     todoData: state.todoData,
   }));
-  console.log(todoData);
-
-  // const dispatch = useDispatch();
-
+console.log(todoData);
   const elements = todoData.map((item) => {
     const { ...itemProps } = item;
-    console.log(itemProps);
 
     return (
       <li key={itemProps.id} className="list-group-item">

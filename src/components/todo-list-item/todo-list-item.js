@@ -23,6 +23,10 @@ export default function TodoListItem({
   if (important) {
     className += " important";
   }
+
+  const onDeleted = (id) => {
+    dispatch(deleteTodo(id));
+  }
  
   return (
     <div className={className}>
@@ -41,7 +45,7 @@ export default function TodoListItem({
         <button
           type="button"
           className="btn btn-outline-danger btn-sm "
-          onClick={dispatch(deleteTodo(id))}
+          onClick={() => onDeleted(id)}
         >
           <i className="fa fa-trash" />
         </button>

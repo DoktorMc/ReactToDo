@@ -6,19 +6,14 @@ import {
 
 const initialState = {
   todoData: [
-    {
-      text: "123456",
-      important: false,
-      done: false,
-      id: 1,
-    },
+ 
+    
   ],
 };
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case ACTION_ADDTODO:
-      console.log(action.type + " " + action.text);
       return {
         ...state,
         todoData: [
@@ -31,19 +26,15 @@ const rootReducer = (state = initialState, action) => {
           },
         ],
       };
-    
-    case ACTION_DELETETODO:
-      console.log('id - ' + action.id);
-      const idx = state.todoData.findIndex((el) => el.id === action.id);
-        const newArray = [
-          ...state.todoData.slice(0, idx),
-          ...state.todoData.slice(idx + 1),
-        ];
 
-        return {
-          ...state,
-          todoData: newArray,
-        };
+    case ACTION_DELETETODO:
+      console.log("id - " + action.id);
+      console.log(state.todoData);
+
+      return {
+        ...state,
+      todoData: state.todoData.filter((obj) => obj.id !== action.id)};
+
     default:
       return state;
   }
