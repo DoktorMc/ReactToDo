@@ -1,44 +1,33 @@
-import React, { Component } from "react";
-
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { addTodo } from "../../store/actions/todoActions";
 import "./todo-add-item.css";
 
-export default class TodoAddItem extends Component {
+export default function TodoAddItem() {
+  const dispatch = useDispatch();
+  const [label, setLabel] = useState("");
 
-  state = {
-    label: ''
+  const onLabelChange = (e) => {
+    setLabel(e.target.value);
   };
 
-  onLabelChange = (e) => {
-    this.setState({
-      label: e.target.value
-    });
-  };
-
-  onSubmit = (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
-    this.props.addItem(this.state.label);
-    this.setState({
-      label: ''
-    });
+    console.log(label);
+    dispatch(addTodo(label));
+    setLabel('');
   };
 
-  render() {
-    return (
-      <form className="add-item d-flex"
-            onSubmit={this.onSubmit}>
-        <input
-          type="text"
-          className="form-control add-input"
-          onChange={this.onLabelChange}
-          placeholder="What need to be done"
-          value={this.state.label}
-        />
-        <button
-          className="btn btn-outline-secondary"
-        >
-          Add Item
-        </button>
-      </form>
-    );
-  }
+  return (
+    <form className="add-item d-flex" onSubmit={onSubmit}>
+      <input
+        type="text"
+        className="form-control add-input"
+        onChange={onLabelChange}
+        placeholder="What need to be done"
+        value={label}
+      />
+      <button className="btn btn-outline-secondary">Add Item</button>
+    </form>
+  );
 }

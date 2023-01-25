@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 
-import TodoListItem from '../todo-list-item';
-import './todo-list.css';
+import TodoListItem from "../todo-list-item";
+import "./todo-list.css";
 
-const TodoList = ({ todos, onDeleted, onToggleImportant, onToggleDone}) => {
-
+const TodoList = ({ todos, onDeleted, onToggleImportant, onToggleDone }) => {
+  console.log(todos);
   const elements = todos.map((item) => {
     const { id, ...itemProps } = item;
 
@@ -20,11 +20,7 @@ const TodoList = ({ todos, onDeleted, onToggleImportant, onToggleDone}) => {
     );
   });
 
-  return (
-    <ul className="list-group todo-list">
-      { elements }
-    </ul>
-  );
+  return <ul className="list-group todo-list">{elements}</ul>;
 };
 
 export default TodoList;

@@ -5,7 +5,7 @@ import "./todo-list-item.css";
 export default class TodoListItem extends Component {
   render() {
     const {
-      label,
+      text,
       onDeleted,
       onToggleImportant,
       onToggleDone,
@@ -25,7 +25,7 @@ export default class TodoListItem extends Component {
     return (
       <div className={className}>
         <span className="todo-list-item-label" onClick={onToggleDone}>
-          {label}
+          {text}
         </span>
         <div>
           <button
