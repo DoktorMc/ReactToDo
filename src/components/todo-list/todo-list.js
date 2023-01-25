@@ -1,14 +1,13 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { deleteTodo } from "../../store/actions/todoActions";
+import {useSelector } from "react-redux";
 import TodoListItem from "../todo-list-item";
 import "./todo-list.css";
 
-const TodoList = ({onToggleImportant, onToggleDone }) => {
+const TodoList = ({ onToggleImportant, onToggleDone }) => {
   const { todoData } = useSelector((state) => ({
     todoData: state.todoData,
   }));
-console.log(todoData);
+
   const elements = todoData.map((item) => {
     const { ...itemProps } = item;
 

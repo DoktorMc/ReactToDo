@@ -7,7 +7,6 @@ import "./todo-list-item.css";
 export default function TodoListItem({
   text,
   id,
-  // onDeleted,
   onToggleImportant,
   onToggleDone,
   important,

@@ -5,10 +5,7 @@ import {
 } from "../actions/todoActions";
 
 const initialState = {
-  todoData: [
- 
-    
-  ],
+  todoData: [],
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -28,12 +25,10 @@ const rootReducer = (state = initialState, action) => {
       };
 
     case ACTION_DELETETODO:
-      console.log("id - " + action.id);
-      console.log(state.todoData);
-
       return {
         ...state,
-      todoData: state.todoData.filter((obj) => obj.id !== action.id)};
+        todoData: state.todoData.filter((obj) => obj.id !== action.id),
+      };
 
     default:
       return state;
