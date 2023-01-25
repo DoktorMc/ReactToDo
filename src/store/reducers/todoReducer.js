@@ -21,14 +21,29 @@ const rootReducer = (state = initialState, action) => {
       console.log(action.type + " " + action.text);
       return {
         ...state,
-        todoData:[ ...state.todoData,
-        {
-        text: action.text,
-          important: false,
+        todoData: [
+          ...state.todoData,
+          {
+            text: action.text,
+            important: false,
             done: false,
-              id: Math.random(),
-        },]
-  };
+            id: Math.random(),
+          },
+        ],
+      };
+    
+    case ACTION_DELETETODO:
+      console.log('id - ' + action.id);
+      const idx = state.todoData.findIndex((el) => el.id === action.id);
+        const newArray = [
+          ...state.todoData.slice(0, idx),
+          ...state.todoData.slice(idx + 1),
+        ];
+
+        return {
+          ...state,
+          todoData: newArray,
+        };
     default:
       return state;
   }

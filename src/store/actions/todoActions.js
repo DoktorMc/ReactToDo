@@ -9,8 +9,9 @@ export const addTodo = (text) => ({
   text
 });
 
-export const deleteTodo = () => ({
+export const deleteTodo = (id) => ({
   type: ACTION_DELETETODO,
+  id
 });
 
 export const toggleProperty = (arr, id, property) => ({

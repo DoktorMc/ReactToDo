@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addTodo } from "../../store/actions/todoActions";
 import "./todo-add-item.css";
