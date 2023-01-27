@@ -1,14 +1,12 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { deleteTodo } from "../../store/actions/todoActions";
+import { deleteTodo, toggleProperty } from "../../store/actions/todoActions";
 
 import "./todo-list-item.css";
 
 export default function TodoListItem({
   text,
   id,
-  onToggleImportant,
-  onToggleDone,
   important,
   done,
 }) {
@@ -26,17 +24,24 @@ export default function TodoListItem({
   const onDeleted = (id) => {
     dispatch(deleteTodo(id));
   }
- 
+
+  const onToggle = (id, prop) => {
+     dispatch(toggleProperty(id, prop));
+  }
+
   return (
     <div className={className}>
-      <span className="todo-list-item-label" onClick={onToggleDone}>
+      <span
+        className="todo-list-item-label"
+        onClick={() => onToggle(id, "done")}
+      >
         {text}
       </span>
       <div>
         <button
           type="button"
           className="btn btn-outline-success btn-sm "
-          onClick={onToggleImportant}
+          onClick={() => onToggle(id, "important")}
         >
           <i className="fa fa-exclamation" />
         </button>

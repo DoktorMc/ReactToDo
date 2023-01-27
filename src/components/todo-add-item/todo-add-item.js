@@ -13,7 +13,6 @@ export default function TodoAddItem() {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log(label);
     dispatch(addTodo(label));
     setLabel('');
   };

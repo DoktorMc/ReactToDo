@@ -18,13 +18,9 @@ export default function App() {
   }));
 
   const [filter, setFilter] = useState("");
-  const [tern, setTern] = useState("");
+  const [term, setTerm] = useState("");
 
-  // const deleteItem = (id) => {
-  //   this.setState(({ todoData }) => {
-  //    
-  //   });
-  // };
+
 
   const searchTodoItem = (items, term) => {
     if (term.length === 0) {
@@ -35,8 +31,8 @@ export default function App() {
     return items.filter((el) => ~el.label.toLowerCase().indexOf(queryText));
   };
 
-  const searchText = (tern) => {
-    setTern({ tern });
+  const searchText = (term) => {
+    setTerm({ term });
   };
 
   const filterItem = (items, filter) => {
@@ -55,49 +51,20 @@ export default function App() {
   const filterText = (filter) => {
     setFilter({ filter });
   };
-
-  // const toggleProperty = (arr, id, propName) => {
-  //   const idx = arr.findIndex((el) => el.id === id);
-  //   // 1. update object
-  //   const oldItem = arr[idx];
-  //   const newItem = { ...oldItem, [propName]: !oldItem[propName] };
-  //   // 2. constructnew array
-  //   return [...arr.slice(0, idx), newItem, ...arr.slice(idx + 1)];
-  // };
-
-  // const onToggleImportant = (id) => {
-  //   this.setState(({ todoData }) => {
-  //     return {
-  //       todoData: this.toggleProperty(todoData, id, "important"),
-  //     };
-  //   });
-  // };
-
-  // const noToggleDone = (id) => {
-  //   this.setState(({ todoData }) => {
-  //     return {
-  //       todoData: this.toggleProperty(todoData, id, "done"),
-  //     };
-  //   });
-  // };
+  
 
   // const visibleItems = filterItem(searchTodoItem(todoData, tern), filter);
-  // const doneCount = todoData.filter((el) => el.done).length;
-  // const todoCount = todoData.length - doneCount;
+  const doneCount = todoData.filter((el) => el.done).length;
+  const todoCount = todoData.length - doneCount;
   return (
     <div className="todo-app">
-      <AppHeader toDo={1} done={2} />
+      <AppHeader toDo={todoCount} done={doneCount} />
       <div className="top-panel d-flex">
         <SearchPanel searchItem={searchText} />
         <ItemStatusFilter filter={filter} filterClick={filterText} />
       </div>
 
-      <TodoList
-        todos={todoData}
-        // onDeleted={deleteItem}
-        // onToggleImportant={onToggleImportant}
-        // onToggleDone={noToggleDone}
-      />
+      <TodoList/>
       <AddItem />
     </div>
   );

@@ -3,7 +3,7 @@ import {useSelector } from "react-redux";
 import TodoListItem from "../todo-list-item";
 import "./todo-list.css";
 
-const TodoList = ({ onToggleImportant, onToggleDone }) => {
+const TodoList = () => {
   const { todoData } = useSelector((state) => ({
     todoData: state.todoData,
   }));
@@ -15,8 +15,6 @@ const TodoList = ({ onToggleImportant, onToggleDone }) => {
       <li key={itemProps.id} className="list-group-item">
         <TodoListItem
           {...itemProps}
-          onToggleImportant={() => onToggleImportant(itemProps.id)}
-          onToggleDone={() => onToggleDone(itemProps.id)}
         />
       </li>
     );
