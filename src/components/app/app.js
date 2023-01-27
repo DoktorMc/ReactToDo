@@ -1,22 +1,22 @@
-import { useEffect, useState } from "react";
-
+import { useState } from "react";
 import AppHeader from "../app-header";
 import SearchPanel from "../search-panel";
 import TodoList from "../todo-list";
 import ItemStatusFilter from "../item-status-filter";
 import AddItem from "../todo-add-item";
+import { useDispatch, useSelector } from "react-redux";
 
 import "./app.css";
-import { useDispatch, useSelector } from "react-redux";
+
 
 
 export default function App() {
   const dispatch = useDispatch();
 
-  const { todoData } = useSelector((state) => ({
-    todoData: state.todoData,
-  }));
-
+  const { todoData } = useSelector(state => state.todo);
+  
+  console.log(todoData);
+  
   const [filter, setFilter] = useState("");
   const [term, setTerm] = useState("");
 

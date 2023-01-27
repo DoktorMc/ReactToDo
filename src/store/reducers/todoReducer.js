@@ -8,7 +8,7 @@ const initialState = {
   todoData: [],
 };
 
-const rootReducer = (state = initialState, action) => {
+const todoReducer = (state = initialState, action) => {
   switch (action.type) {
     case ACTION_ADDTODO:
       return {
@@ -55,4 +55,4 @@ const rootReducer = (state = initialState, action) => {
 };
 
 
-export default rootReducer;
+export default todoReducer;

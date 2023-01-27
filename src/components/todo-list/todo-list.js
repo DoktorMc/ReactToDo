@@ -4,9 +4,7 @@ import TodoListItem from "../todo-list-item";
 import "./todo-list.css";
 
 const TodoList = () => {
-  const { todoData } = useSelector((state) => ({
-    todoData: state.todoData,
-  }));
+  const {todoData} = useSelector(state => state.todo);
 
   const elements = todoData.map((item) => {
     const { ...itemProps } = item;
